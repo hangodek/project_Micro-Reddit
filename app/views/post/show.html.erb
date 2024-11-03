@@ -1,0 +1,12 @@
+<h1><%= link_to "<", dashboard_index_path %></h1>
+
+<h1><%= @post.title %></h1>
+<p><%= @post.body %></p>
+
+<%= link_to "Created by " + @user.username, @user %>
+
+<hr>
+
+<h1>Comment</h1>
+
+<%= render "commentform" %>

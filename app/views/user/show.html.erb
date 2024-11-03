@@ -1,0 +1,13 @@
+<h1><%= link_to "<", :back %></h1>
+<h1>Profile</h1>
+
+<h3>Username : <%= @user.username %></h3>
+<h3>Email : <%= @user.email_address %></h3>
+
+
+<%= link_to "Delete User", @user, data: {
+  turbo_method: :delete,
+  turbo_confirm: "Are you sure?"
+} %>
+
+<%= link_to "Back to Dashboard", dashboard_index_path %>

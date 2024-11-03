@@ -1,0 +1,27 @@
+<h1>Dashboard</h1>
+<% if authenticated? %>
+  <p>Logged in as : <%= Current.user.email_address %></p>
+  <%= link_to "Sign out", session_path, data: {
+    turbo_method: :delete,
+    turbo_confirm: "Are you sure?"
+  } %>
+<% end %>
+
+
+<hr>
+
+<div class="posts-group">
+  <% @users_posts.each do |user| %>
+    <% user.each do |post| %>
+      <div>
+        <h3><%= post.title %></h3>
+        <p><%= post.body %></p>
+        <%= link_to "Check the post", post %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<hr>
+
+<%= link_to "Make new post", new_post_path %>
