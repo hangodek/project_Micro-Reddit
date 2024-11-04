@@ -3,10 +3,22 @@
 <h1><%= @post.title %></h1>
 <p><%= @post.body %></p>
 
-<%= link_to "Created by " + @user.username, @user %>
+<!--<h1>Post = <%#= @post.body %></h1>-->
+<!--<h1>User = <%#= @user.username %></h1>-->
+
+<%#= link_to "Created by " + @user.username, @user %>
 
 <hr>
 
 <h1>Comment</h1>
 
-<%= render "commentform" %>
+<%= form_with model: [@post, @post.comments.build], local: true do |form| %>
+  <div>
+    <%= form.label :content, "Enter your comment" %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div>
+    <%= form.submit "Create Comment" %>
+  </div>
+<% end %>
