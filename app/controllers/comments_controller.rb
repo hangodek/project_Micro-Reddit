@@ -2,7 +2,6 @@ class CommentsController < ApplicationController
   allow_unauthenticated_access
 
   def create
-
     if authenticated?
       @user = User.find_by_username(Current.user.username)
     end

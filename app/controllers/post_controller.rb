@@ -1,5 +1,5 @@
 class PostController < ApplicationController
-  allow_unauthenticated_access only: [:show]
+  allow_unauthenticated_access only: [ :show ]
 
   def show
     @post = Post.find(params[:id])

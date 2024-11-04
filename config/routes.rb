@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   resources :passwords, param: :token
   root to: "dashboard#index"
 
-  resources :dashboard, only: [:index]
-  resources :user, only: [:show, :new, :create, :destroy]
-  resources :post, only: [:show, :new, :create] do
-    resources :comments, only: [:create]
+  resources :dashboard, only: [ :index ]
+  resources :user, only: [ :show, :new, :create, :destroy ]
+  resources :post, only: [ :show, :new, :create ] do
+    resources :comments, only: [ :create ]
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -20,5 +20,4 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-
 end
